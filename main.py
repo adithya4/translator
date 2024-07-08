@@ -10,6 +10,6 @@ def index():
   user_text = "apa kabar"
   languages = "en"
   translated_text = translator.translate(user_text, dest="languages")
-  return {"Translated Text" : translated_text}
+  return translated_text
   
 
