@@ -2,4 +2,4 @@ pip
 fastapi== 0.85.0
 uvicorn == 0.18.2
 googletrans == 3.1.0a0
-fastapi-mutipart
+
