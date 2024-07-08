@@ -21,7 +21,7 @@
     document.getElementById("translate-form").onsubmit = async function(event) {
       event.preventDefault();
       const formData = new FormData(event.target);
-      const response = await fetch('https://transaltor-vl9g.onrender.com/translate',{
+      const response = await fetch('https://translator-vl9g.onrender.com/translate',{
         method: "POST",
         body: formData
       });
