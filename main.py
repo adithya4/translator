@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-import googletrans import Translator
+from googletrans import Translator
 
 app= FastAPI()
 
