@@ -1,9 +1,15 @@
 from fastapi import FastAPI
-import uvicorn
+import googletrans import Translator
 
 app= FastAPI()
 
+translator = Translator()
+
 @app.get("/transalte")
 def index():
-  return "HI"
+  user_text = "apa kabar"
+  languages = "en"
+  translated_text = translator.translate(user_text, dest="languages")
+  return {"Translated Text" : translated_text}
+  
 
