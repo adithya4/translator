@@ -10,9 +10,7 @@ def home():
   return "WELCOME HOME"
 
 @app.get("/translate")
-def index():
-  user_text = "apa kabar"
-  languages = "en"
+def index(user_text : str=Form(...), languages: str=Form(...)):
   translated_text = translator.translate(user_text, dest=languages)
   return translated_text.text
   
