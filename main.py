@@ -23,7 +23,7 @@ def index():
 @app.post("/translate")
 def translation(user_text : str=Form(...), language: str=Form(...)):
   translated_text = translator.translate(user_text, dest=language)
-  return translated_text.text
+  return {"translated_text" : translated_text.text}
   
 
   
