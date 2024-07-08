@@ -7,13 +7,13 @@ app= FastAPI()
 translator = Translator()
 
 @app.get("/",response_class=HTMLResponse)
-def home():
+def index():
   with open("index.html",'r') as file:
     return file.read()
 
 
 @app.get("/translate")
-def index(user_text : str=Form(...), languages: str=Form(...)):
+def translation(user_text : str=Form(...), languages: str=Form(...)):
   translated_text = translator.translate(user_text, dest=languages)
   return translated_text.text
   
