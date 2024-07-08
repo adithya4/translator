@@ -12,9 +12,6 @@ def index():
     return file.read()
 
 
-@app.get("/translate")
-def translation(user_text : str=Form(...), languages: str=Form(...)):
-  translated_text = translator.translate(user_text, dest=languages)
-  return translated_text.text
+
   
 
