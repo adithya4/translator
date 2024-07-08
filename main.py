@@ -3,7 +3,7 @@ import uvicorn
 
 app= FastAPI()
 
-@app.get("/")
+@app.get("/transalte")
 def index():
   return "HI"
 
