@@ -5,11 +5,11 @@ app= FastAPI()
 
 translator = Translator()
 
-@app.get("/transalte")
+@app.get("/translate")
 def index():
   user_text = "apa kabar"
   languages = "en"
   translated_text = translator.translate(user_text, dest="languages")
-  return translated_text
+  return translated_text.text
   
 
