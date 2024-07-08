@@ -20,7 +20,7 @@ def index():
   with open("index.html",'r') as file:
     return file.read()
 
-@app.get("/translate")
+@app.post("/translate")
 def translation(user_text : str=Form(...), language: str=Form(...)):
   translated_text = translator.translate(user_text, dest=language)
   return translated_text.text
