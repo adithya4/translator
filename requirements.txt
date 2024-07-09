@@ -1,5 +1,4 @@
-pip
-fastapi== 0.85.0
-uvicorn == 0.18.2
+flask
+flask-cors
 googletrans == 3.1.0a0
-python-cors
+
