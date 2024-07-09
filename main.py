@@ -1,26 +1,22 @@
-from fastapi import FastAPI, Form
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+
+from flask import Flask, request, jsonify, render_template_string
+from flask_cors import CORS
 from googletrans import Translator
 
-app = FastAPI()
+app = Flask(__name__)
+CORS(app)
 
 translator = Translator()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get("/", response_class=HTMLResponse)
+@app.route("/", methods=["GET"])
 def index():
     with open("index.html", 'r') as file:
-        return file.read()
+        return render_template_string(file.read())
 
-@app.post("/translate")
-async def translation(user_text: str = Form(...), language: str = Form(...)):
+@app.route("/translate", methods=["POST"])
+def translation():
+    user_text = request.form['user_text']
+    language = request.form['language']
     translated_text = translator.translate(user_text, dest=language)
-    return {"translated_text": translated_text.text}
+    return jsonify({"translated_text": translated_text.text})
+
